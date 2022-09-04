@@ -1,0 +1,2 @@
+module Framegrabber
+end
