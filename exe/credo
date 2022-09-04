@@ -1,3 +1,43 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
+require "bundler/setup"
 require "credo/detector"
+require "optparse"
+
+@tests = 300
+@camera = 0
+
+help = "usage: credo [options]
+These are common Credo commands used in various situations:
+
+   calibrate [--tests=300] [--camera=0]     Calibrates the camera
+   detect    [--camera=0] [--config]        Starts detection, sends the results back to server
+   version                                  Prints version, same as credo -v or credo --version
+"
+
+OptionParser.new do |opt|
+  opt.on("-h", "--help", "Prints help") do
+    puts help
+    exit
+  end
+
+  opt.on("-v", "version") do
+    puts Credo::Detector::VERSION
+    exit
+  end
+
+  opt.on("-t", "--tests=300", Integer, "Sets the number of tests for calibration") do |tests_number|
+    @tests = [tests_number.to_i, 1].max
+  end
+
+  opt.on("-c", "--camera=0", Integer, "Sets the camera number") do |camera_number|
+    @camera = [camera_number.to_i, 0].max
+  end
+
+  opt.on("calibrate") do
+    Credo::Calibration.calibrate(tests: @tests.to_i, device_id: @camera.to_i)
+    exit
+  end
+end.parse!
+
