@@ -12,3 +12,5 @@
 
 # Built native lib
 lib/grab_frame_ext.*
+
+credo-detector-*.gem
