@@ -1,7 +1,9 @@
 require "mkmf"
+require "pkg-config"
 
 $CXXFLAGS << " -std=c++11 "
-$INCFLAGS << " -I/opt/homebrew/opt/opencv/include/opencv4/   "
-$LDFLAGS << " -L/opt/homebrew/opt/opencv/lib -lopencv_core -lopencv_videoio"
+
+$INCFLAGS << " " + PKGConfig.cflags("opencv4")
+$LDFLAGS << " " + PKGConfig.libs("opencv4")
 
 create_makefile("grab_frame_ext")
