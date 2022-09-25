@@ -5,7 +5,6 @@ require_relative "../framegrabber"
 require "grab_frame_ext"
 require "date"
 require "rmagick"
-require "pry"
 
 module Credo
   module Detector
@@ -60,7 +59,7 @@ module Credo
     end
 
     def self.crop(x, y)
-      @frame.slice(x-10, 10).map { |row| row.slice(y-10, 10) }
+      @frame.slice(x-10, 20).map { |row| row.slice(y-10, 20) }
     end
 
     def self.bgr_to_gray(image)
