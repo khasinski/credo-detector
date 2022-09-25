@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     credo-detector (0.1.3)
+      pkg-config (~> 1.4)
       rmagick (~> 4.0)
 
 GEM
@@ -32,7 +33,6 @@ PLATFORMS
 
 DEPENDENCIES
   credo-detector!
-  pkg-config (~> 1.4)
   rake (~> 13.0)
   rake-compiler (~> 1.0)
   rspec (~> 3.0)

@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7'
 
   spec.add_development_dependency "rake-compiler", "~> 1.0"
-  spec.add_development_dependency "pkg-config", "~> 1.4"
+  spec.add_dependency "pkg-config", "~> 1.4"
   spec.add_dependency "rmagick", "~> 4.0"
 end
