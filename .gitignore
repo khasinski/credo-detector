@@ -14,3 +14,5 @@
 lib/grab_frame_ext.*
 
 credo-detector-*.gem
+
+detections/

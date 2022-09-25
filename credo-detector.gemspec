@@ -32,5 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rake-compiler", "~> 1.0"
   spec.add_development_dependency "pkg-config"
+  spec.add_development_dependency "pry"
   spec.add_dependency "rmagick"
 end

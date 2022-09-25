@@ -16,11 +16,9 @@ module Credo
       puts "Calibration completed"
       puts "Maximum value: #{max_values.max}"
       puts "Average of maximum values: #{max_values.sum.to_f / max_values.size}"
-    rescue Interrupt, RuntimeError
-      puts
-      puts "Calibration interrupted"
     ensure
       Framegrabber.release
+      "Calibration interrupted"
     end
 
     def self.grab_frame
